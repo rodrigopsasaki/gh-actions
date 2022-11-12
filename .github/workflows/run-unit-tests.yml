@@ -4,7 +4,7 @@ on: push
 
 jobs:
 
-  run-tests:
+  test:
     runs-on: ubuntu-22.04
     steps:
       - name: Fetch the code from hosted repository
@@ -27,6 +27,7 @@ jobs:
         run: pnpm test
 
   deploy:
+    needs: test
     runs-on: ubuntu-22.04
     steps:
       - name: Fetch the code from hosted repository
