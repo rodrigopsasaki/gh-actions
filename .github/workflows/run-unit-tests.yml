@@ -3,6 +3,7 @@ name: Run unit tests for react app
 on: push
 
 jobs:
+
   run-tests:
     runs-on: ubuntu-22.04
     steps:
@@ -17,10 +18,32 @@ jobs:
       - name: Install PNPM
         uses: pnpm/action-setup@v2
         with:
-          version: 6.0.2
+          version: 7.14.1
 
       - name: Install dependencies
         run: pnpm install
 
       - name: Run tests
         run: pnpm test
+
+  deploy:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Fetch the code from hosted repository
+        uses: actions/checkout@v3
+
+      - name: Install NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install PNPM
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7.14.1
+
+      - name: Build deployable artifact
+        run: pnpm run build
+
+      - name: Deploy
+        run: echo "Deploying..."
