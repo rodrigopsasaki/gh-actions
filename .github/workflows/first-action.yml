@@ -6,7 +6,7 @@ jobs:
   whatever-name-i-want-first-job:
     runs-on: ubuntu-22.04
     steps:
-      - name: Print greeting
-        run: echo "Hello World!"
-      - name: Print goodbye
-        run: echo "Goodbye, world!"
+      - name: Print greeting and goodbye
+        run: |
+          echo "Hello World!"
+          echo "Goodbye, world!"
