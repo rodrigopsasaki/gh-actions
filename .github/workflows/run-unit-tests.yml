@@ -41,6 +41,7 @@ jobs:
         uses: pnpm/action-setup@v2
         with:
           version: 7.14.1
+          run_install: true
 
       - name: Build deployable artifact
         run: pnpm run build
