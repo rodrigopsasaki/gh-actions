@@ -1,6 +1,6 @@
 name: Run unit tests for react app
 
-on: push
+on: [push, workflow_dispatch]
 
 jobs:
 
